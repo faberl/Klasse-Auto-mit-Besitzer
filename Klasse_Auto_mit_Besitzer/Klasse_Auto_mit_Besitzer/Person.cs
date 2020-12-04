@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Erlacher_Fabian_PersoneneingabeMitKlassen
+namespace Klasse_Auto_mit_Besitzer
 {
     public class Person
     {
