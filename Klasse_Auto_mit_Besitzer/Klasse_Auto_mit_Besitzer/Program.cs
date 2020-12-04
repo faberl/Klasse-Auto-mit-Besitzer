@@ -88,16 +88,34 @@ namespace Klasse_Auto_mit_Besitzer
             string constructionYear = Console.ReadLine();
             Console.WriteLine("Farbe eingeben.");
             string color = Console.ReadLine();
+
+            int.TryParse(personID, out int convertedPersonID);
+            double.TryParse(listPrice, out double convertedListPrice);
+            int.TryParse(mileage, out int convertedMileAge);
+            int.TryParse(constructionYear, out int convertedConstructionYear);
+
+            Car newCar = new Car(convertedMileAge, convertedConstructionYear, convertedListPrice, color, convertedPersonID);
         }
 
         public static void UpdateCarData()
         {
+            Console.WriteLine("Die gefahrenen Kilomenter eingeben.");
+            string newMileAge = Console.ReadLine();
+            int.TryParse(newMileAge, out int newMileAgeConverted);
 
+            Car mileAge = new Car();
+            mileAge.[... fehlt nocht](newMileAgeConverted);
         }
 
         public static void TimeToNextService()
         {
+            Console.WriteLine("Die Auto-ID eingeben.");
+            string carID = Console.ReadLine();
 
+            int.TryParse(carID, out int carIDconverted);
+
+            Car nextService = new Car();
+            nextService.TimeToNextService(carIDconverted);
         }
 
         public static void ValueOfCar()

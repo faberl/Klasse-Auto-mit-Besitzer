@@ -122,7 +122,8 @@ namespace Klasse_Auto_mit_Besitzer
             
         }
 
-        public void TimeToNextService()
+        public void TimeToNextService(int carID) //Bemerkung von Philipp: In der Eingabemaske wird nur die AutoID eingegeben.
+                                        //d.h. du müsstest dir den KM-Stand aus dem Autoarray holen von von dem ausgehend die Zeit berechnen.
         {
             int _nextService;
             _nextService = 15000 - _km; 
