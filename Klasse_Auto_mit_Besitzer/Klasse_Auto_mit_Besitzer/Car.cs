@@ -16,8 +16,8 @@ namespace Klasse_Auto_mit_Besitzer
         double _actualValue;
         double _listprice;
         string _color;
-        string _brand;
-        string[] _carArray  = new string[10];
+        int _personID;
+        int[] _carArray  = new int[10];
         int _carID;
 
 
@@ -73,13 +73,14 @@ namespace Klasse_Auto_mit_Besitzer
         }
 
         //create a new Car 
-        public Car(int km, int bj, double listprice, string color, string brand)
+        public Car(int km, int bj, double listprice, string color, int personID)
         {
             _km = km;
             _bj = bj;
             _listprice = listprice;
             _color = color;
-            _brand = brand;
+            _personID = personID;
+            Person besitzer = new Person();
         }
         #endregion
 
@@ -117,7 +118,7 @@ namespace Klasse_Auto_mit_Besitzer
 
         public void ChangeOwner(string newOwner)
         {
-            Person Besitzer = new Person();
+            Person besitzer = new Person();
             
         }
 
@@ -146,7 +147,7 @@ namespace Klasse_Auto_mit_Besitzer
         private void FillCarArray()
         {
 
-            _carArray[_carID] = ;
+            _carArray[_carID] = _personID;
             _carID++;
 
             if (_carID == 9)

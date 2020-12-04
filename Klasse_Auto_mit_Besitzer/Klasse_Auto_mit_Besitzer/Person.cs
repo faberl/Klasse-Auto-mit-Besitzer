@@ -11,7 +11,7 @@ namespace Klasse_Auto_mit_Besitzer
         #region members
         private string _name, _sureName;
         private int _personID, _age;
-        string[] personArray = new string[10];
+        int[] _personArray = new int[10];
         #endregion
 
 
@@ -85,9 +85,22 @@ namespace Klasse_Auto_mit_Besitzer
             return Name + " " + _sureName + "  " + _personID + "  " + _age;
         }
 
+
+
         private void FillPersonArray()
         {
+            for (int i = 0; i < _personArray.Length; i++)
+            {
+                Person newPerson = new Person();
+                newPerson.Name = "Muster";
+                newPerson.SureName = "Test";
+                _personArray[i] = PersonID;
 
+
+            }
+            
+            Person Besitzer = new Person();
+            
         }
         #endregion
 
