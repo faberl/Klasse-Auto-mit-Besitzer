@@ -17,6 +17,9 @@ namespace Klasse_Auto_mit_Besitzer
         double _listprice;
         string _color;
         string _brand;
+        string[] _carArray  = new string[10];
+        int _carID;
+
 
         #endregion
 
@@ -77,7 +80,6 @@ namespace Klasse_Auto_mit_Besitzer
             _listprice = listprice;
             _color = color;
             _brand = brand;
-
         }
         #endregion
 
@@ -87,19 +89,42 @@ namespace Klasse_Auto_mit_Besitzer
         //methods for "GetActualValue", "ChangeOwner", "TimeToNextService"
         public double GetActualValue()
         {
-            _actualValue = _listprice;
+            int _age;
+            _age = 2020 - _bj;
+           
+            if (_km > 20000)
+            {
+                _listprice = _listprice - (0.10 * _listprice);
+            }
+            else if (_km > 40000)
+            {
+                _listprice = _listprice - (0.20 * _listprice);
+            }
+            else if (_km > 60000)
+            {
+                _listprice = _listprice - (0.30 * _listprice);
+            }
+
+            _actualValue = _listprice - (_age * 0.05*_listprice);
+
+            if (_actualValue <= 500)
+            {
+                _actualValue = 500;
+            }
 
             return _actualValue;
         }
 
         public void ChangeOwner(string newOwner)
         {
+            Person Besitzer = new Person();
             
         }
 
         public void TimeToNextService()
         {
-            
+            int _nextService;
+            _nextService = 15000 - _km; 
             Console.WriteLine("Ihr nächstes Servie ist in {0} km fällig");
         }
 
@@ -110,7 +135,7 @@ namespace Klasse_Auto_mit_Besitzer
         {
             for (int i = 0; i < 9; i++)
             {
-                Console.WriteLine(_historyArray[i]);
+                Console.WriteLine(_carArray[_carID]);
             }
         }
         #endregion
@@ -118,14 +143,15 @@ namespace Klasse_Auto_mit_Besitzer
 
         #region private methods
         //Fill the history with the results
-        private void Fillhistory(decimal newResult)
+        private void FillCarArray()
         {
-            _historyArray[_placeInArray] = newResult;
-            _placeInArray++;
 
-            if (_placeInArray == 9)
+            _carArray[_carID] = ;
+            _carID++;
+
+            if (_carID == 9)
             {
-                _placeInArray = 0;
+                Console.WriteLine("Verzeichnis ist voll");
             }
         }
         #endregion

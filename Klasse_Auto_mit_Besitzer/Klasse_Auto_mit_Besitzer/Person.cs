@@ -10,7 +10,8 @@ namespace Klasse_Auto_mit_Besitzer
     {
         #region members
         private string _name, _sureName;
-        private int _mNumber, _age;
+        private int _personID, _age;
+        string[] personArray = new string[10];
         #endregion
 
 
@@ -19,14 +20,14 @@ namespace Klasse_Auto_mit_Besitzer
         {
             _name = " ";
             _sureName = " ";
-            _mNumber = '0';
-            _age = '0';
+            _personID = ' ';
+            _age = ' ';
         }
-        public Person(string name, string surename, int mNumber, int age)
-        {           
+        public Person(string name, string surename, int personID, int age)
+        {
             _name = name;
             _sureName = surename;
-            _mNumber = mNumber;
+            _personID = personID;
             _age = age;
         }
         #endregion
@@ -41,8 +42,8 @@ namespace Klasse_Auto_mit_Besitzer
                 return _name;
             }
             set
-            {           
-                _name = value;        
+            {
+                _name = value;
             }
         }
         //set surename
@@ -57,38 +58,36 @@ namespace Klasse_Auto_mit_Besitzer
                 _sureName = value;
             }
         }
-        //set MNumber
-        public int MNumber
+        //get MNumber
+        public int PersonID
         {
             get
             {
-                return _mNumber;
+                return _personID;
             }
-            set
-            {
-                _mNumber = value;
-            }
+
         }
-        //set age
+        //get age
         public int Age
         {
             get
             {
                 return _age;
             }
-            set
-            {
-                _age = value;
-            }
         }
         #endregion
 
-      
+
         #region methods
         //hands over properties to PrintArray
         public string Print()
-        {            
-                return Name +" "+ _sureName +"  "+ _mNumber +"  "+ _age;                
+        {
+            return Name + " " + _sureName + "  " + _personID + "  " + _age;
+        }
+
+        private void FillPersonArray()
+        {
+
         }
         #endregion
 
