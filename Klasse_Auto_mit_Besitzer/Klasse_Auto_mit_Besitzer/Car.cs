@@ -13,7 +13,7 @@ namespace Klasse_Auto_mit_Besitzer
         //declare variables 
         int _km;
         int _bj;
-        int _currentprice;
+        double _actualValue;
         double _listprice;
         string _color;
         string _brand;
@@ -63,13 +63,13 @@ namespace Klasse_Auto_mit_Besitzer
 
 
         #region constructor 
-        //create a new Calculater
+        //create a new Car
         public Car()
         {
 
         }
 
-        //get firstNumber and secondNumber
+        //create a new Car 
         public Car(int km, int bj, double listprice, string color, string brand)
         {
             _km = km;
@@ -84,37 +84,29 @@ namespace Klasse_Auto_mit_Besitzer
 
         #region methods
 
-        //methods for add, subtract, divide, multiply
-        public decimal Add()
+        //methods for "GetActualValue", "ChangeOwner", "TimeToNextService"
+        public double GetActualValue()
         {
-            _result = _firstNumber + _secondNumber;
-            Fillhistory(_result);
-            return _result;
+            _actualValue = _listprice;
+
+            return _actualValue;
         }
 
-        public decimal Subtract()
+        public void ChangeOwner(string newOwner)
         {
-            _result = _firstNumber - _secondNumber;
-            Fillhistory(_result);
-            return _result;
+            
         }
 
-        public decimal Divide()
+        public void TimeToNextService()
         {
-            _result = _firstNumber / _secondNumber;
-            Fillhistory(_result);
-            return _result;
+            
+            Console.WriteLine("Ihr nächstes Servie ist in {0} km fällig");
         }
 
-        public decimal Multiply()
-        {
-            _result = _firstNumber * _secondNumber;
-            Fillhistory(_result);
-            return _result;
-        }
+        
                    
         //print history
-        public void PrintHistory()
+        public void PrintAllCars()
         {
             for (int i = 0; i < 9; i++)
             {
