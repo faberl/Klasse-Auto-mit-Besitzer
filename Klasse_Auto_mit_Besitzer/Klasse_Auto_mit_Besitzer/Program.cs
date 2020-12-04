@@ -11,8 +11,25 @@ namespace Klasse_Auto_mit_Besitzer
         //Main von Philipp Herbst inpliziert.
         static void Main(string[] args)
         {
+            bool yesOrNo = false;
+
             Console.WriteLine("Willkommen in der Fuhrparkverwaltung von Herbst und Erlacher.");
             GetCommadns();
+
+            do
+            {
+                Console.WriteLine("Möchten Sie weitere Aktionen tätigen? y/n.");
+                string anotherTry = Console.ReadLine();
+
+                switch (anotherTry)
+                {
+                    case "y": GetCommadns(); break;
+                    case "Y": GetCommadns(); break;
+                    case "n": yesOrNo = true; break;
+                    case "N": yesOrNo = true; break;
+                    default: Console.WriteLine("Ungültige Eingabe!"); break;
+                }
+            } while (!yesOrNo);
         }
 
         public static void GetCommadns()
@@ -30,8 +47,8 @@ namespace Klasse_Auto_mit_Besitzer
                     case "H": ShowAllCommands(); break;
                     case "s": ShowAllCars(); break;
                     case "S": ShowAllCars(); break;
-                    case "c": ListPrice(); break;
-                    case "C": ListPrice(); break;
+                    case "c": InsertNewCar(); break;
+                    case "C": InsertNewCar(); break;
                     case "d": UpdateCarData(); break;
                     case "D": UpdateCarData(); break;
                     case "n": TimeToNextService(); break;
@@ -55,12 +72,22 @@ namespace Klasse_Auto_mit_Besitzer
 
         public static void ShowAllCars()
         {
-
+            Car print = new Car();
+            print.PrintAllCars();
         }
 
-        public static void ListPrice()
+        public static void InsertNewCar()
         {
-
+            Console.WriteLine("Die Personen ID eingeben.");
+            string personID = Console.ReadLine();
+            Console.WriteLine("Den Listenpreis eingeben.");
+            string listPrice = Console.ReadLine();
+            Console.WriteLine("Den Kilometerstand eingeben.");
+            string mileage = Console.ReadLine();
+            Console.WriteLine("Baujahr eingeben.");
+            string constructionYear = Console.ReadLine();
+            Console.WriteLine("Farbe eingeben.");
+            string color = Console.ReadLine();
         }
 
         public static void UpdateCarData()
