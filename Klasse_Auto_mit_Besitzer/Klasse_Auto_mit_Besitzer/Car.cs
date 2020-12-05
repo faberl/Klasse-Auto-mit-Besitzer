@@ -12,14 +12,19 @@ namespace Klasse_Auto_mit_Besitzer
 
         //declare variables 
         int _km;
-        int _bj;
-        double _actualValue;
-        double _listprice;
-        string _color;
+        int _bj;  
         int _personID;
         int[] _carArray  = new int[10];
         int _carID;
-
+        int _ageOfCar;
+        int _kmLimit;
+        int _distanceToNextService;
+        int _serviceintervall;
+        double _percentLossPerKm;
+        double _actualValue;
+        double _listprice;
+        string _color;
+        bool _success;
 
         #endregion
 
@@ -80,58 +85,78 @@ namespace Klasse_Auto_mit_Besitzer
             _listprice = listprice;
             _color = color;
             _personID = personID;
-            Person besitzer = new Person();
         }
         #endregion
 
 
         #region methods
 
-        //methods for "GetActualValue", "ChangeOwner", "TimeToNextService"
+        //methods for "GetActualValue", "ChangeOwner", "TimeToNextService" 
         public double GetActualValue()
         {
-            int _age;
-            _age = 2020 - _bj;
+            DateTime actual = DateTime.Now;
+            int year = actual.Year;
+
+            _ageOfCar = year - _bj;
+            _kmLimit = 10000;
+            _percentLossPerKm = 0.00;
+            _success = false;
            
-            if (_km > 20000)
+            do
             {
-                _listprice = _listprice - (0.10 * _listprice);
-            }
-            else if (_km > 40000)
-            {
-                _listprice = _listprice - (0.20 * _listprice);
-            }
-            else if (_km > 60000)
-            {
-                _listprice = _listprice - (0.30 * _listprice);
-            }
+                if (_km <= _kmLimit && _km > (_kmLimit - 10000))
+                {
+                    _actualValue = _listprice - (_percentLossPerKm * _listprice) - (_ageOfCar * 0.03 * _listprice);
 
-            _actualValue = _listprice - (_age * 0.05*_listprice);
+                    if (_actualValue <= 300)
+                    {
+                        _actualValue = 300;
+                    }
+                    _success = true;
+                }
+                else
+                {
+                    _kmLimit = _kmLimit + 10000;
+                    _percentLossPerKm = _percentLossPerKm + 0.04;
+                }
+            } while (!_success);
 
-            if (_actualValue <= 500)
-            {
-                _actualValue = 500;
-            }
-
+            Console.WriteLine(_actualValue); //Ausgabe oder Rückgabewert?
             return _actualValue;
         }
 
         public void ChangeOwner(string newOwner)
         {
-            Person besitzer = new Person();
-            
+            Person besitzer = new Person();            
         }
 
-        public void TimeToNextService(int carID) //Bemerkung von Philipp: In der Eingabemaske wird nur die AutoID eingegeben.
-                                        //d.h. du müsstest dir den KM-Stand aus dem Autoarray holen von von dem ausgehend die Zeit berechnen.
+        public void DistanceToNextService() //Bemerkung von Philipp: In der Eingabemaske wird nur die AutoID eingegeben.d.h. du müsstest dir den KM-Stand aus dem Autoarray holen von von dem ausgehend die Zeit berechnen.
         {
-            int _nextService;
-            _nextService = 15000 - _km; 
-            Console.WriteLine("Ihr nächstes Servie ist in {0} km fällig");
+                _success = false;
+                _distanceToNextService = 0;
+                _serviceintervall = 15000;
+
+                do
+                {
+                    if (_km <= _serviceintervall && _km >= (_serviceintervall - 15000))
+                    {
+                        _distanceToNextService = _serviceintervall - _km;
+                        _success = true;
+                    }
+                    else
+                    {
+                        _serviceintervall = _serviceintervall + 15000;
+                    }
+                } while (!_success);
+
+                Console.WriteLine("Next Service in {0} km", _distanceToNextService);
         }
 
-        
-                   
+        public void TimeToNextService()
+        {
+
+        }
+
         //print history
         public void PrintAllCars()
         {

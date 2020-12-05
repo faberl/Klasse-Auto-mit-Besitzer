@@ -58,7 +58,7 @@ namespace Klasse_Auto_mit_Besitzer
                 _sureName = value;
             }
         }
-        //get MNumber
+        //get PersonID
         public int PersonID
         {
             get
