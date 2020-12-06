@@ -92,7 +92,7 @@ namespace Klasse_Auto_mit_Besitzer
         #region methods
 
         //methods for "GetActualValue", "ChangeOwner", "TimeToNextService" 
-        public double GetActualValue()
+        public double GetActualValue(int carID) 
         {
             DateTime actual = DateTime.Now;
             int year = actual.Year;
@@ -121,7 +121,7 @@ namespace Klasse_Auto_mit_Besitzer
                 }
             } while (!_success);
 
-            Console.WriteLine(_actualValue); //Ausgabe oder Rückgabewert?
+            Console.WriteLine(_actualValue); //Ausgabe oder Rückgabewert? ---> Ausgabe!
             return _actualValue;
         }
 
@@ -130,7 +130,7 @@ namespace Klasse_Auto_mit_Besitzer
             Person besitzer = new Person();            
         }
 
-        public void DistanceToNextService() //Bemerkung von Philipp: In der Eingabemaske wird nur die AutoID eingegeben.d.h. du müsstest dir den KM-Stand aus dem Autoarray holen von von dem ausgehend die Zeit berechnen.
+        public void DistanceToNextService(int carID) //Bemerkung von Philipp: In der Eingabemaske wird nur die AutoID eingegeben.d.h. du müsstest dir den KM-Stand aus dem Autoarray holen von von dem ausgehend die Zeit berechnen.
         {
                 _success = false;
                 _distanceToNextService = 0;
@@ -152,7 +152,7 @@ namespace Klasse_Auto_mit_Besitzer
                 Console.WriteLine("Next Service in {0} km", _distanceToNextService);
         }
 
-        public void TimeToNextService()
+        public void TimeToNextService() 
         {
 
         }

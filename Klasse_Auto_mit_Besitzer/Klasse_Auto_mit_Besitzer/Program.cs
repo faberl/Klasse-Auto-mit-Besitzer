@@ -115,12 +115,18 @@ namespace Klasse_Auto_mit_Besitzer
             int.TryParse(carID, out int carIDconverted);
 
             Car nextService = new Car();
-            nextService.TimeToNextService(carIDconverted);
+            nextService.DistanceToNextService(carIDconverted);
         }
 
         public static void ValueOfCar()
         {
+            Console.WriteLine("Die Auto-ID eingeben.");
+            string carID = Console.ReadLine();
 
+            int.TryParse(carID, out int carIDconverted);
+
+            Car nextService = new Car();
+            nextService.GetActualValue(carIDconverted);
         }
     }
 }
