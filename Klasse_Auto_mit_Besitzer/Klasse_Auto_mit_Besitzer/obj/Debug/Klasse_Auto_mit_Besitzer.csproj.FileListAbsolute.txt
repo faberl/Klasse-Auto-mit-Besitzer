@@ -1,15 +1,7 @@
-C:\Users\phili\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\GIT\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\bin\Debug\Klasse_Auto_mit_Besitzer.exe.config
-C:\Users\phili\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\GIT\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\bin\Debug\Klasse_Auto_mit_Besitzer.exe
-C:\Users\phili\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\GIT\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\bin\Debug\Klasse_Auto_mit_Besitzer.pdb
-C:\Users\phili\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\GIT\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.csprojAssemblyReference.cache
-C:\Users\phili\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\GIT\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.csproj.CoreCompileInputs.cache
-C:\Users\phili\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\GIT\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.exe
-C:\Users\phili\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\GIT\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.pdb
-C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage2\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.csprojAssemblyReference.cache
-C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage2\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.csproj.CoreCompileInputs.cache
-C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage2\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.exe
-C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage2\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.pdb
-C:\Users\Philipp\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\Neuer Ordner\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.csprojAssemblyReference.cache
-C:\Users\Philipp\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\Neuer Ordner\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.csproj.CoreCompileInputs.cache
-C:\Users\Philipp\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\Neuer Ordner\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.exe
-C:\Users\Philipp\OneDrive\01 FH Wels\1. Semester\05 Programmieren 1\Neuer Ordner\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.pdb
+C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage4\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\bin\Debug\Klasse_Auto_mit_Besitzer.exe.config
+C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage4\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\bin\Debug\Klasse_Auto_mit_Besitzer.exe
+C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage4\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\bin\Debug\Klasse_Auto_mit_Besitzer.pdb
+C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage4\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.csprojAssemblyReference.cache
+C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage4\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.csproj.CoreCompileInputs.cache
+C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage4\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.exe
+C:\Users\Erlacher Fabian\Desktop\Programmieren\Projekt\stage4\Klasse_Auto_mit_Besitzer\Klasse_Auto_mit_Besitzer\obj\Debug\Klasse_Auto_mit_Besitzer.pdb

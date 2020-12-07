@@ -9,9 +9,9 @@ namespace Klasse_Auto_mit_Besitzer
     public class Person
     {
         #region members
-        private string _name, _sureName;
+        private string _name;
+        private string _sureName;
         private int _personID, _age;
-        int[] _personArray = new int[10];
         #endregion
 
 
@@ -34,7 +34,7 @@ namespace Klasse_Auto_mit_Besitzer
 
 
         #region properties
-        //set Name
+        //get and set Name
         public string Name
         {
             get
@@ -61,49 +61,14 @@ namespace Klasse_Auto_mit_Besitzer
         //get PersonID
         public int PersonID
         {
-            get
-            {
-                return _personID;
-            }
-
+            get => _personID;
+        
         }
         //get age
         public int Age
         {
-            get
-            {
-                return _age;
-            }
+            get => _age;
         }
         #endregion
-
-
-        #region methods
-        //hands over properties to PrintArray
-        public string Print()
-        {
-            return Name + " " + _sureName + "  " + _personID + "  " + _age;
-        }
-
-
-
-        private void FillPersonArray()
-        {
-            for (int i = 0; i < _personArray.Length; i++)
-            {
-                Person newPerson = new Person();
-                newPerson.Name = "Muster";
-                newPerson.SureName = "Test";
-                _personArray[i] = PersonID;
-
-
-            }
-            
-            Person Besitzer = new Person();
-            
-        }
-        #endregion
-
-
     }
 }
