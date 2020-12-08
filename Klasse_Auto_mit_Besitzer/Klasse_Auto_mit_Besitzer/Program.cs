@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Klasse_Auto_mit_Besitzer
 {
-    class Program //dir fehlt noch die changeOwner Methode bzw Option / wir ändern qausi nur die Personen ID im Autoarray
-    {               //am besten fragst du Auto ID vom zu ändernden autos ab und dann die neue Besitzer ID 
-                    //und mittels carArray[carIDconverted].Change Owner wird der Wechsel dann durchgeführt
-
-        static Person[] personArray = new Person[11];
-        static Car[] carArray = new Car[11];
-        static Person[] ownerHistoryArray = new Person[10];
-        static int curCarNum = 0; //current Car number
+    class Program
+    {
+        static Person[] personArray = new Person[10000000];
+        static Car[] carArray = new Car[10000000];
+        static Person[] ownerHistoryArray = new Person[1000000];
+        static int curCarNum = -1; //current Car number
         static int curHistoryNu = 0;
         static void createNewPersons()
         {
@@ -51,6 +49,7 @@ namespace Klasse_Auto_mit_Besitzer
             Console.WriteLine("Willkommen in der Fuhrparkverwaltung von Herbst und Erlacher.");
             GetCommands();
 
+            //query of another operation
             do
             {
                 Console.WriteLine("Möchten Sie weitere Aktionen tätigen? y/n.");
@@ -67,6 +66,7 @@ namespace Klasse_Auto_mit_Besitzer
             } while (!yesOrNo);
         }
 
+        //input of commands
         public static void GetCommands()
         {
             bool succsess = true;
@@ -95,6 +95,7 @@ namespace Klasse_Auto_mit_Besitzer
             } while (!succsess);
         }
 
+        //Shows all commands
         public static void ShowAllCommands()
         {
             Console.WriteLine("s: Zeigt alle Fahrzeuge an.");
@@ -105,6 +106,7 @@ namespace Klasse_Auto_mit_Besitzer
             GetCommands();
         }
 
+        //shows all cars
         public static void ShowAllCars()
         {
             int j = 1;
@@ -115,6 +117,7 @@ namespace Klasse_Auto_mit_Besitzer
             }
         }
 
+        //generates a new car
         public static void InsertNewCar()
         {
             if (curCarNum == 9)
@@ -125,12 +128,13 @@ namespace Klasse_Auto_mit_Besitzer
             int convertedConstructionYear;
             System.DateTime date = DateTime.Now;
             int year = date.Year;
+            bool check = false;
 
             do
             {
                 Console.WriteLine("Die Personen ID eingeben.");
-                int.TryParse(Console.ReadLine(), out personID);
-            } while (personID > 10 || personID < 0);
+                check = int.TryParse(Console.ReadLine(), out personID);
+            } while (!check);
 
             do
             {
@@ -153,14 +157,20 @@ namespace Klasse_Auto_mit_Besitzer
             Console.WriteLine("Farbe eingeben.");
             string color = Console.ReadLine();
 
-            carArray[curCarNum++] = new Car(convertedMileAge, convertedConstructionYear, convertedListPrice, color, personArray[personID]);
+            curCarNum++;
+            carArray[curCarNum] = new Car(convertedMileAge, convertedConstructionYear, convertedListPrice, color, personArray[personID]);
             FillHistory(personArray[personID], personID);
-            if (curCarNum == 10)
+            if (curCarNum == carArray.Length)
             {
                 Console.WriteLine("Der Fuhrpark ist nun voll, es können keine zusätzlichen Autos mehr hinzugefügt werden");
             }
+            else
+            {
+                Console.WriteLine("Die AutoID des neuen Autos lautet: " + curCarNum);
+            }
         }
 
+        //query if the customer would like update the owner or the mile age
         public static void UpdateCarData()
         {
             int desicion;
@@ -171,43 +181,117 @@ namespace Klasse_Auto_mit_Besitzer
             switch (desicion)
             {
                 case 1: ChangeOwner(); break;
-                case 2: break;
+                case 2: ChangeMileAge(); break;
                 default: UpdateCarData(); break;
             }
-
-            Console.WriteLine("Die gefahrenen Kilomenter eingeben.");
-            string newMileAge = Console.ReadLine();
-            int.TryParse(newMileAge, out int newMileAgeConverted);
-
-            Console.WriteLine("Die Auto-ID eingeben."); //hab die AutoID eingabe noch hinzugefügt, die brauch ich auch //Überprüfung wie unten
-            string carID = Console.ReadLine();
-            int.TryParse(carID, out int carIDconverted);
-
-            int newKm = carArray[carIDconverted].Drive(newMileAgeConverted); //auf den newKm sind dann die neuen Km drauf falls du was damit machen möchtest
         }
 
+        //Update mile age
+        public static void ChangeMileAge()
+        {
+            int newMileAgeConverted;
+            int carIDconverted;
+            do
+            {
+                Console.WriteLine("Die gefahrenen Kilomenter eingeben.");
+                string newMileAge = Console.ReadLine();
+                int.TryParse(newMileAge, out newMileAgeConverted);
+            } while (newMileAgeConverted < 0 || newMileAgeConverted > 1000000);
+
+            do
+            {
+                Console.WriteLine("Die Auto-ID eingeben.");
+                string carID = Console.ReadLine();
+                int.TryParse(carID, out carIDconverted);
+            } while (carIDconverted < 0 || carIDconverted > 10);
+
+            int newKm = carArray[carIDconverted].Drive(newMileAgeConverted);
+
+            Console.WriteLine("Die Kilometeranzahl wurde aktualisiert.");
+        }
+
+        //Change owner
+        public static void ChangeOwner()
+        {
+            int carID;
+            bool correktName = false;
+            int newPersonID;
+            int newAge;
+            string firstName;
+            string secoundName;
+            bool goAhead = false;
+
+            do
+            {
+                Console.WriteLine("Die AutoID eingeben.");
+                int.TryParse(Console.ReadLine(), out carID);
+            } while (carID < 0 || carID > 100000000);
+
+            do
+            {
+                Console.WriteLine("Den Vornamen eingeben.");
+                firstName = Console.ReadLine();
+                Console.WriteLine("Den Nachnamen eingeben.");
+                secoundName = Console.ReadLine();
+                Console.WriteLine("{0} {1} ist korrekt? y/n", firstName, secoundName);
+                string query = Console.ReadLine();
+                switch (query)
+                {
+                    case "y": correktName = true; break;
+                    case "n": break;
+                    default: break;
+                }
+            } while (!correktName);
+
+            do
+            {
+                Console.WriteLine("Das Alter eingeben.");
+                int.TryParse(Console.ReadLine(), out newAge);
+            } while (newAge < 17 || newAge > 90);
+
+            int i = 0;
+            do
+            {
+                i++;
+                if (personArray[i] == null)
+                {
+                    goAhead = true;
+                }
+                newPersonID = i;
+            } while (!goAhead);
+
+            Person newOwner = new Person(firstName, secoundName, newPersonID, newAge);
+            carArray[carID].ChangeOwner(newOwner);
+
+            Console.WriteLine("Die neue Person wurde angelegt und dem Auto zugewiesen.");
+            Console.WriteLine(carArray[carID].Print());
+        }
+
+        //Calculates tim eto next service
         public static void TimeToNextService()
         {
-            Console.WriteLine("Die Auto-ID eingeben."); //hier muss noch überprüft werden ob der Eingegebene wert kleiner als die curCarNum ist sonst error
+            Console.WriteLine("Die Auto-ID eingeben.");
             string carID = Console.ReadLine();
             int.TryParse(carID, out int carIDconverted);
 
             int nextService = carArray[carIDconverted].DistanceToNextService();
             Console.WriteLine(nextService);
-            //carArray[carIDconverted].TimeToNextService(); //muss ich noch schreiben die Methode..      
+            carArray[carIDconverted].TimeToNextService();
         }
 
+        //Calculates value of car
         public static void ValueOfCar()
         {
-            Console.WriteLine("Die Auto-ID eingeben."); //Ebenfalls eingabe überprüfen ob Eingabe kleiner curCarNum ist 
+            Console.WriteLine("Die Auto-ID eingeben.");
             string carID = Console.ReadLine();
             int.TryParse(carID, out int carIDconverted);
 
             double value = carArray[carIDconverted].GetActualValue();
-            Console.WriteLine("Der aktuelle Wert ihres Autos beträgt" + value + " Euro"); //vorschlag von mir
+            Console.WriteLine("Der aktuelle Wert ihres Autos beträgt" + value + " Euro");
         }
 
-        private static void FillHistory(Person person, int personID) //optional aber ich denke es schadet nicht...
+        //Fill History
+        private static void FillHistory(Person person, int personID)
         {
             ownerHistoryArray[curHistoryNu++] = personArray[personID];
 
