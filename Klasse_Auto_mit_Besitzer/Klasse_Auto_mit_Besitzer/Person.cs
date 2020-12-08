@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Klasse_Auto_mit_Besitzer
 {
-    public class Person
+    public class Person  //class Person von Fabian Erlacher inpliziert
     {
+        //members of each Person
         #region members
         private string _name;
         private string _sureName;
-        private int _personID, _age;
+        private int _personID;
+        private int _age;
         #endregion
 
-
+        //Create a new Person 
         #region constructor
         public Person()
         {
@@ -34,41 +36,23 @@ namespace Klasse_Auto_mit_Besitzer
 
 
         #region properties
-        //get and set Name
-        public string Name
+
+        public string Name { get; set; }
+
+        public string SureName { get; set; }
+
+        public int PersonID { get; }
+
+        public int Age { get; set; }
+
+        #endregion
+
+        #region methods
+        public int Print()
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            return _personID;
         }
-        //set surename
-        public string SureName
-        {
-            get
-            {
-                return _sureName;
-            }
-            set
-            {
-                _sureName = value;
-            }
-        }
-        //get PersonID
-        public int PersonID
-        {
-            get => _personID;
-        
-        }
-        //get age
-        public int Age
-        {
-            get => _age;
-        }
+
         #endregion
     }
 }
