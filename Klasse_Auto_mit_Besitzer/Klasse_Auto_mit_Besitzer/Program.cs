@@ -123,11 +123,14 @@ namespace Klasse_Auto_mit_Besitzer
             double convertedListPrice;
             int convertedMileAge;
             int convertedConstructionYear;
+            System.DateTime date = DateTime.Now;
+            int year = date.Year;
+
             do
             {
                 Console.WriteLine("Die Personen ID eingeben.");
                 int.TryParse(Console.ReadLine(), out personID);
-            } while(personID > 10 || personID < 0);
+            } while (personID > 10 || personID < 0);
 
             do
             {
@@ -145,8 +148,9 @@ namespace Klasse_Auto_mit_Besitzer
             {
                 Console.WriteLine("Baujahr eingeben.");
                 int.TryParse(Console.ReadLine(), out convertedConstructionYear);
-            }while(convertedConstructionYear > )
-                Console.WriteLine("Farbe eingeben.");
+            } while (convertedConstructionYear > year || convertedConstructionYear < 0);
+
+            Console.WriteLine("Farbe eingeben.");
             string color = Console.ReadLine();
 
             carArray[curCarNum++] = new Car(convertedMileAge, convertedConstructionYear, convertedListPrice, color, personArray[personID]);
@@ -159,7 +163,17 @@ namespace Klasse_Auto_mit_Besitzer
 
         public static void UpdateCarData()
         {
+            int desicion;
+
             Console.WriteLine("Möchten Sie den Besitzer des Autos ändern (1) oder den Kilometerstand aktuallisieren(2)?");
+            int.TryParse(Console.ReadLine(), out desicion);
+
+            switch (desicion)
+            {
+                case 1: ChangeOwner(); break;
+                case 2: break;
+                default: UpdateCarData(); break;
+            }
 
             Console.WriteLine("Die gefahrenen Kilomenter eingeben.");
             string newMileAge = Console.ReadLine();
