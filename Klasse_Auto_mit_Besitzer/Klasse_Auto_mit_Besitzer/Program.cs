@@ -10,34 +10,23 @@ namespace Klasse_Auto_mit_Besitzer
     {
         static Person[] personArray = new Person[10000000];
         static Car[] carArray = new Car[10000000];
-        static Person[] ownerHistoryArray = new Person[1000000];
-        static int curCarNum = -1; //current Car number
+        static Person[] ownerHistoryArray = new Person[10];
+        static int curCarNum = -1; 
         static int curHistoryNu = 0;
         static void createNewPersons()
-        {
-            Person newPerson0 = new Person("Muster0", "Mayr0", 0, 28);
-            personArray[0] = newPerson0;
-            Person newPerson1 = new Person("Muster1", "Mayr1", 1, 20);
-            personArray[1] = newPerson1;
-            Person newPerson2 = new Person("Muster2", "Mayr2", 2, 21);
-            personArray[2] = newPerson2;
-            Person newPerson3 = new Person("Muster3", "Mayr3", 3, 22);
-            personArray[3] = newPerson3;
-            Person newPerson4 = new Person("Muster4", "Mayr4", 4, 23);
-            personArray[4] = newPerson4;
-            Person newPerson5 = new Person("Muster5", "Mayr5", 5, 24);
-            personArray[5] = newPerson5;
-            Person newPerson6 = new Person("Muster6", "Mayr6", 6, 25);
-            personArray[6] = newPerson6;
-            Person newPerson7 = new Person("Muster7", "Mayr7", 7, 26);
-            personArray[7] = newPerson7;
-            Person newPerson8 = new Person("Muster8", "Mayr8", 8, 27);
-            personArray[8] = newPerson8;
-            Person newPerson9 = new Person("Muster9", "Mayr9", 9, 28);
-            personArray[9] = newPerson9;
-            Person newPerson10 = new Person("Muster10", "Mayr10", 10, 29);
-            personArray[10] = newPerson10;
-        } //steht in der Aufgabenstellung das wir die Personen bei Programmstart angelegt werden sollen
+        {           
+            personArray[0] = new Person("Muster0", "Mayr0", 0, 28);
+            personArray[1] = new Person("Muster1", "Mayr1", 1, 20);          
+            personArray[2] = new Person("Muster2", "Mayr2", 2, 21);           
+            personArray[3] = new Person("Muster3", "Mayr3", 3, 22);          
+            personArray[4] = new Person("Muster4", "Mayr4", 4, 23);           
+            personArray[5] = new Person("Muster5", "Mayr5", 5, 24);            
+            personArray[6] = new Person("Muster6", "Mayr6", 6, 25);         
+            personArray[7] = new Person("Muster7", "Mayr7", 7, 26);          
+            personArray[8] = new Person("Muster8", "Mayr8", 8, 27);           
+            personArray[9] = new Person("Muster9", "Mayr9", 9, 28);           
+            personArray[10] = new Person("Muster10", "Mayr10", 10, 29);
+        } 
 
         //Main von Philipp Herbst inpliziert.
         static void Main(string[] args)
@@ -109,19 +98,24 @@ namespace Klasse_Auto_mit_Besitzer
         //shows all cars
         public static void ShowAllCars()
         {
-            int j = 1;
-            for (int i = 0; i < curCarNum; i++)
+            if (curCarNum == -1)
             {
-                Console.WriteLine("{0}) {1}", j++, carArray[i].Print());
-                Console.WriteLine();
+                int j = 1;
+                for (int i = 0; i <= curCarNum; i++)
+                {
+                    Console.WriteLine("{0}) {1}", j++, carArray[i].Print());
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Es befinden sich keine Autos in der Verwaltung");
             }
         }
 
         //generates a new car
         public static void InsertNewCar()
-        {
-            if (curCarNum == 9)
-                return;
+        {           
             int personID;
             double convertedListPrice;
             int convertedMileAge;
@@ -157,8 +151,8 @@ namespace Klasse_Auto_mit_Besitzer
             Console.WriteLine("Farbe eingeben.");
             string color = Console.ReadLine();
 
-            curCarNum++;
-            carArray[curCarNum] = new Car(convertedMileAge, convertedConstructionYear, convertedListPrice, color, personArray[personID]);
+            
+            carArray[++curCarNum] = new Car(convertedMileAge, convertedConstructionYear, convertedListPrice, color, personArray[personID]);
             FillHistory(personArray[personID], personID);
             if (curCarNum == carArray.Length)
             {
@@ -166,7 +160,7 @@ namespace Klasse_Auto_mit_Besitzer
             }
             else
             {
-                Console.WriteLine("Die AutoID des neuen Autos lautet: " + curCarNum);
+                Console.WriteLine("Die AutoID des neuen Autos lautet: " + curCarNum );
             }
         }
 

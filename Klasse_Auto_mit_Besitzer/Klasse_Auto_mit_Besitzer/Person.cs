@@ -48,9 +48,9 @@ namespace Klasse_Auto_mit_Besitzer
         #endregion
 
         #region methods
-        public int Print()
+        public string Print()
         {
-            return _personID;
+            return _name + " " + _sureName;
         }
 
         #endregion
