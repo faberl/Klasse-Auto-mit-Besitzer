@@ -40,12 +40,14 @@ namespace Klasse_Auto_mit_Besitzer
             Person newPerson10 = new Person("Muster10", "Mayr10", 10, 29);
             personArray[10] = newPerson10;
         } //steht in der Aufgabenstellung das wir die Personen bei Programmstart angelegt werden sollen
-        
+
         //Main von Philipp Herbst inpliziert.
         static void Main(string[] args)
         {
             bool yesOrNo = false;
-            
+
+            createNewPersons();
+
             Console.WriteLine("Willkommen in der Fuhrparkverwaltung von Herbst und Erlacher.");
             GetCommands();
 
@@ -66,7 +68,7 @@ namespace Klasse_Auto_mit_Besitzer
         }
 
         public static void GetCommands()
-        {          
+        {
             bool succsess = true;
             do
             {
@@ -80,7 +82,7 @@ namespace Klasse_Auto_mit_Besitzer
                     case "H": ShowAllCommands(); break;
                     case "s": ShowAllCars(); break;
                     case "S": ShowAllCars(); break;
-                    case "c": InsertNewCar(); break;//auf c tust du hier ein neues Kfz hinzufügen unten allerdings den listenpreis berrechnen 
+                    case "c": InsertNewCar(); break;
                     case "C": InsertNewCar(); break;
                     case "d": UpdateCarData(); break;
                     case "D": UpdateCarData(); break;
@@ -96,21 +98,21 @@ namespace Klasse_Auto_mit_Besitzer
         public static void ShowAllCommands()
         {
             Console.WriteLine("s: Zeigt alle Fahrzeuge an.");
-            Console.WriteLine("c: Berechnet den Listenpreis ihres neuen Autos."); // hier meine ich 
+            Console.WriteLine("c: Legt ein neuen Autos an.");
             Console.WriteLine("d: Hier werden die akutellen Daten eines Fahrzeuges eingegeben.");
             Console.WriteLine("n: Hier wird die Zeit bis zum nächsten Service berechnet.");
             Console.WriteLine("v: Berechnet den aktuellen Wert Ihres Autos.");
             GetCommands();
         }
 
-        public static void ShowAllCars() //evtl noch Beschriftung (Reihenfole ist in der Funktion Print in Car
+        public static void ShowAllCars()
         {
             int j = 1;
             for (int i = 0; i < curCarNum; i++)
             {
-                Console.WriteLine("{0}) {1}" , j++, carArray[i].Print());
+                Console.WriteLine("{0}) {1}", j++, carArray[i].Print());
                 Console.WriteLine();
-            }              
+            }
         }
 
         public static void InsertNewCar()
@@ -129,7 +131,7 @@ namespace Klasse_Auto_mit_Besitzer
             Console.WriteLine("Farbe eingeben.");
             string color = Console.ReadLine();
 
-            
+
             double.TryParse(listPrice, out double convertedListPrice);
             int.TryParse(mileage, out int convertedMileAge);
             int.TryParse(constructionYear, out int convertedConstructionYear);
@@ -140,7 +142,7 @@ namespace Klasse_Auto_mit_Besitzer
             {
                 Console.WriteLine("Der Fuhrpark ist nun voll, es können keine zusätzlichen Autos mehr hinzugefügt werden");
             }
-            }
+        }
 
         public static void UpdateCarData()
         {
@@ -162,7 +164,7 @@ namespace Klasse_Auto_mit_Besitzer
             int.TryParse(carID, out int carIDconverted);
 
             int nextService = carArray[carIDconverted].DistanceToNextService();
-            Console.WriteLine(nextService); 
+            Console.WriteLine(nextService);
             //carArray[carIDconverted].TimeToNextService(); //muss ich noch schreiben die Methode..      
         }
 
@@ -173,7 +175,7 @@ namespace Klasse_Auto_mit_Besitzer
             int.TryParse(carID, out int carIDconverted);
 
             double value = carArray[carIDconverted].GetActualValue();
-            Console.WriteLine("Der aktuelle Wert ihres Autos beträgt"+ value +" Euro"); //vorschlag von mir
+            Console.WriteLine("Der aktuelle Wert ihres Autos beträgt" + value + " Euro"); //vorschlag von mir
         }
 
         private static void FillHistory(Person person, int personID) //optional aber ich denke es schadet nicht...

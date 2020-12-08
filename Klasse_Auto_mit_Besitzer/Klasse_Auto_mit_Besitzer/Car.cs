@@ -105,7 +105,7 @@ namespace Klasse_Auto_mit_Besitzer
 
         public string Print()
         {
-            return _owner + " | " + _km + " km | " + _bj + " Bj | " + _listprice + " Euro";
+            return _owner + " | " + _km + " km | " + _bj + " Bj | " + _listprice + " Euro | Farbe " + _color;
         }
         #endregion
 
