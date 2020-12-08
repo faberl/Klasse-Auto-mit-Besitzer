@@ -117,24 +117,37 @@ namespace Klasse_Auto_mit_Besitzer
 
         public static void InsertNewCar()
         {
-            if (curCarNum == 9) //wennn das Array bereits voll ist bricht es ab...hab das jetzt mal so gemacht evtl hast noch eine bessere Idee
-                return;     //nicht das ma an error bekommen weil ma zu viel ins array schreiben und überschreiben sollen wir denk ich auch nicht
-                            //also vermutlich am besten das man hier nicht mehr rein kommt sobald der fuhrpark voll ist
-            Console.WriteLine("Die Personen ID eingeben."); //Personen ID ist gleichzeitig Platz im PersonenArray also zwischen 1 und 10 ansonst error
-            int.TryParse(Console.ReadLine(), out int personID); //kannst wennsd willst alle so schreiben, ist kürzer
-            Console.WriteLine("Den Listenpreis eingeben.");
-            string listPrice = Console.ReadLine();
-            Console.WriteLine("Den Kilometerstand eingeben.");
-            string mileage = Console.ReadLine();
-            Console.WriteLine("Baujahr eingeben.");
-            string constructionYear = Console.ReadLine();
-            Console.WriteLine("Farbe eingeben.");
+            if (curCarNum == 9)
+                return;
+            int personID;
+            double convertedListPrice;
+            int convertedMileAge;
+            int convertedConstructionYear;
+            do
+            {
+                Console.WriteLine("Die Personen ID eingeben.");
+                int.TryParse(Console.ReadLine(), out personID);
+            } while(personID > 10 || personID < 0);
+
+            do
+            {
+                Console.WriteLine("Den Listenpreis eingeben.");
+                double.TryParse(Console.ReadLine(), out convertedListPrice);
+            } while (convertedListPrice < 0 || convertedListPrice > 100000);
+
+            do
+            {
+                Console.WriteLine("Den Kilometerstand eingeben.");
+                int.TryParse(Console.ReadLine(), out convertedMileAge);
+            } while (convertedMileAge > 1000000 || convertedMileAge < 0);
+
+            do
+            {
+                Console.WriteLine("Baujahr eingeben.");
+                int.TryParse(Console.ReadLine(), out convertedConstructionYear);
+            }while(convertedConstructionYear > )
+                Console.WriteLine("Farbe eingeben.");
             string color = Console.ReadLine();
-
-
-            double.TryParse(listPrice, out double convertedListPrice);
-            int.TryParse(mileage, out int convertedMileAge);
-            int.TryParse(constructionYear, out int convertedConstructionYear);
 
             carArray[curCarNum++] = new Car(convertedMileAge, convertedConstructionYear, convertedListPrice, color, personArray[personID]);
             FillHistory(personArray[personID], personID);
@@ -146,6 +159,8 @@ namespace Klasse_Auto_mit_Besitzer
 
         public static void UpdateCarData()
         {
+            Console.WriteLine("Möchten Sie den Besitzer des Autos ändern (1) oder den Kilometerstand aktuallisieren(2)?");
+
             Console.WriteLine("Die gefahrenen Kilomenter eingeben.");
             string newMileAge = Console.ReadLine();
             int.TryParse(newMileAge, out int newMileAgeConverted);
