@@ -100,16 +100,16 @@ namespace Klasse_Auto_mit_Besitzer
         {
             if (curCarNum == -1)
             {
+                Console.WriteLine("Es befinden sich keine Autos in der Verwaltung");
+            }
+            else
+            {
                 int j = 1;
                 for (int i = 0; i <= curCarNum; i++)
                 {
                     Console.WriteLine("{0}) {1}", j++, carArray[i].Print());
                     Console.WriteLine();
                 }
-            }
-            else
-            {
-                Console.WriteLine("Es befinden sich keine Autos in der Verwaltung");
             }
         }
 
@@ -269,8 +269,9 @@ namespace Klasse_Auto_mit_Besitzer
             int.TryParse(carID, out int carIDconverted);
 
             int nextService = carArray[carIDconverted].DistanceToNextService();
-            Console.WriteLine(nextService);
-            carArray[carIDconverted].TimeToNextService();
+            Console.WriteLine("Nächstes Service fällig in "+nextService+" km");
+            int nextSeviceDays = carArray[carIDconverted].TimeToNextService();
+            Console.WriteLine("bzw. in " + nextSeviceDays + " Tage");
         }
 
         //Calculates value of car

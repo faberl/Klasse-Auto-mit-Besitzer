@@ -26,7 +26,6 @@ namespace Klasse_Auto_mit_Besitzer
         int _km;
         int _bj;
         int _carAge;
-        int _carID;
         double _actualValue;
         double _listPrice;
         string _color;
